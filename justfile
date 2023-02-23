@@ -1,8 +1,8 @@
 # Docs: https://just.systems/man/en/
 
 project_name := "try-pygwalker"
-#app_py := "src/Main.py"
-#server_port := "8080"
+app_py := "src/Main.py"
+server_port := "8080"
 gcp_region := "australia-southeast1"   
 # region formerly # asia-southeast2
 #input := "lj/nrcg-lj-1comp.in"
@@ -22,7 +22,7 @@ dev-venv:
 	python3 -m venv .venv_dev_{{project_name}}
 	. .venv_dev_{{project_name}}/bin/activate
 	python3 -m pip install --upgrade pip
-	pip install --require-virtualenv --log pip_install_{{project_name}}.log -r requirements.txt
+	pip install --require-virtualenv --log pip_install_{{project_name}}.log -r requirements-dev.txt
 	python -m ipykernel install --user --name .venv_dev_{{project_name}}
 	echo -e '\n' source .venv_dev_{{project_name}}/bin/activate '\n'
 
@@ -71,11 +71,6 @@ rm-dev-venv:
 test:
     pytest
 
-# just bulk-fluid-pyoz input="input_filename"
-bulk-fluid-pyoz:
-	#!/usr/bin/env bash
-	cd src/pyoz
-	python pyoz.py -i tests/{{input}}
 
 # Run app.py (in Streamlit) locally
 
