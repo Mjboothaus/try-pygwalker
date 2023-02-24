@@ -1,5 +1,6 @@
 .venv_*/
 *.parquet
+*.ddb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
