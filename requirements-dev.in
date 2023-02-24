@@ -1,3 +1,7 @@
 notebook
 poetry
 pygwalker
+faker
+duckdb
+pandas
+fastparquet
